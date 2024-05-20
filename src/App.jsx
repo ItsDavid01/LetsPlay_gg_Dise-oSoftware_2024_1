@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import "./App.css";
-import { useNavigate } from "react-router-dom";
 import MostrarContrasena from "./ShowPssd";
 import AvisoEmergente from "./AvisoEmergente";
-import Slider from "./Slide";
 
 function App() {
   const [registroExitoso, setRegistroExitoso] = useState(false);
-  const navigate = useNavigate();
 
   const guardarInfoRegistro = () => {
     setRegistroExitoso(true);
     setTimeout(() => {
       setRegistroExitoso(false);
     }, 5000);
-    // Abrir una nueva ventana al presionar el botón después de 2 segundos
+
+    // Abrir una nueva ventana después de 2 segundos y cerrar la ventana principal
     setTimeout(() => {
-      window.open("/Interface", "_blank");
+      const newWindow = window.open("/Interface", "_blank");
+      window.close();
     }, 2000);
   };
 
   return (
-    <body>
+    <div className="app-body">
       <section>
         <div className="contenedor">
           <div className="formulario">
@@ -29,16 +28,16 @@ function App() {
               <h2>Registrate</h2>
               <h4>¡Bienvenido a Let's Play.GG!</h4>
               <div className="input-contenedor">
-                <input type="name" id="name1id" required></input>
-                <label htmlFor="#">¿Cuál es tu Apodo?</label>
+                <input type="text" id="name1id" required />
+                <label htmlFor="name1id">¿Cuál es tu Apodo?</label>
               </div>
               <div className="input-contenedor">
-                <input type="mail" id="usermail" required></input>
-                <label htmlFor="#">Correo Electrónico</label>
+                <input type="email" id="usermail" required />
+                <label htmlFor="usermail">Correo Electrónico</label>
               </div>
               <div className="input-contenedor">
-                <input type="user" id="userid" required></input>
-                <label htmlFor="#">Usuario</label>
+                <input type="text" id="userid" required />
+                <label htmlFor="userid">Usuario</label>
               </div>
               <MostrarContrasena />
             </form>
@@ -47,7 +46,7 @@ function App() {
           </div>
         </div>
       </section>
-    </body>
+    </div>
   );
 }
 
