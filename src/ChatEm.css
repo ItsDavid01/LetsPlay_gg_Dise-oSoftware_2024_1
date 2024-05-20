@@ -26,7 +26,7 @@
 
 .ChatSelector {
   background: #111111;
-  border-radius: 5px;
+  border-radius: 0px;
   left: -374px;
   position: relative;
   width: 25%;
@@ -34,6 +34,16 @@
   justify-content: center;
   display: flex;
   overflow-y: auto;
+}
+
+.ChatSpace {
+  background: #111111;
+  left: 261px;
+  position: absolute;
+  width: 763px;
+  height: 580px;
+  justify-content: center;
+  display: flex;
 }
 
 .ChatSelector::-webkit-scrollbar {

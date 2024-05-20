@@ -1,133 +1,133 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .bdd {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(Backgrounds/bk2.gif) center/cover no-repeat;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(Backgrounds/bk2.gif) center/cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .Containercards {
-    position: relative;
-    width: 550px;
-    left: -180px;
-    border: 0px solid rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 550px;
+  left: -180px;
+  border: 0px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .Containerinfo {
-    position: relative;
-    width: 450px;
-    left: -80px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 450px;
+  left: -80px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 100vh;
-    background-color: rgb(8, 8, 8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background-color: rgb(8, 8, 8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
 }
 
-
 .bar-button {
-    width: 50px;
-    height: 50px;
-    background-color:transparent;
-    border-radius: 50%;
-    border: none;
-    margin-bottom: 10px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .bar-button:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .bar-button.home {
-    background: url('Icons/home.png') no-repeat center/contain;
-    filter: invert(100%);
-    background-position: center;
-    background-size: 70%;
-    outline: none;
-}  
+  background: url("Icons/home.png") no-repeat center/contain;
+  filter: invert(100%);
+  background-position: center;
+  background-size: 70%;
+  outline: none;
+}
 
 .bar-button.home:hover {
-    box-shadow: 0 0 5px rgb(96, 184, 14);
-}  
+  box-shadow: 0 0 5px rgb(96, 184, 14);
+}
 
 .bar-button.chat {
-    background: url('Icons/chat.png') no-repeat center/contain;
-    filter: invert(100%);
-    background-size: 70%;
-    outline: none;
-  }
+  background: url("Icons/chat.png") no-repeat center/contain;
+  filter: invert(100%);
+  background-size: 70%;
+  outline: none;
+}
 
-  .bar-button.chat:hover {
-    box-shadow: 0 0 5px rgb(15, 93, 211);
-}  
-  
-  .bar-button.match {
-    background: url('Icons/likes.png') no-repeat center/contain;
-    filter: invert(100%);
-    background-size: 90%;
-    outline: none;
-  }
-  
-  .bar-button.match:hover {
-    box-shadow: 0 0 5px rgb(7, 233, 203);
-}  
+.bar-button.chat:hover {
+  box-shadow: 0 0 5px rgb(15, 93, 211);
+}
 
-  .bar-button.acc {
-    background: url('Icons/us.png') no-repeat center/contain;
-    filter: invert(100%);
-    background-size: 70%;
-    outline: none;
-  }
+.bar-button.match {
+  background: url("Icons/likes.png") no-repeat center/contain;
+  filter: invert(100%);
+  background-size: 90%;
+  outline: none;
+}
 
-  .bar-button.acc:hover {
-    box-shadow: 0 0 5px rgb(233, 7, 7);
-}  
+.bar-button.match:hover {
+  box-shadow: 0 0 5px rgb(7, 233, 203);
+}
+
+.bar-button.acc {
+  background: url("Icons/us.png") no-repeat center/contain;
+  filter: invert(100%);
+  background-size: 70%;
+  outline: none;
+}
+
+.bar-button.acc:hover {
+  box-shadow: 0 0 5px rgb(233, 7, 7);
+}

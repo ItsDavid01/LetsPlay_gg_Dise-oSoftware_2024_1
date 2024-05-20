@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./ChatEm.css";
+import imagen1 from "./imagen-1.jpg";
 
 const Modal = ({ onClose }) => {
   const [closing, setClosing] = useState(false);
-
+  const images = [imagen1];
   const handleClose = () => {
     setClosing(true);
     setTimeout(() => {
@@ -29,12 +30,13 @@ const Modal = ({ onClose }) => {
             <p>Chats Activos</p>
             {[...Array(2)].map((_, index) => (
               <button key={index}>
-                <img src={`imagen-${index + 1}.jpg`} className="button-image" />
-                Botón {index + 1}
+                <img src={images[index]} className="button-image" />
+                Persona {index + 1}
               </button>
             ))}
           </div>
         </div>
+        <div className="ChatSpace"></div>
       </div>
     </div>
   );
