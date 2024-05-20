@@ -50,13 +50,17 @@ const Slider = () => {
           onClick={handlePrev}
           className="control-left"
           aria-label="Previous Slide"
-        ></button>
+        >
+          ◄
+        </button>
         <button
           id="control-right"
           onClick={handleNext}
           className="control-right"
           aria-label="Next Slide"
-        ></button>
+        >
+          ►
+        </button>
       </div>
     </div>
   );
