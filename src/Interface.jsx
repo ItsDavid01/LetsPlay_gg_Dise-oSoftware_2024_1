@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Slider from "./SliderInt";
-import Modal from "./Modal";
+import ChatEm from "./ChatEm";
 import "./Interface.css";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isChatEmOpen, setIsChatEmOpen] = useState(false);
 
   const handleChatButtonClick = () => {
-    setIsModalOpen(true);
+    setIsChatEmOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseChatEm = () => {
+    setIsChatEmOpen(false);
   };
 
   return (
@@ -35,7 +35,7 @@ function App() {
       <section>
         <div className="Containerinfo"></div>
       </section>
-      {isModalOpen && <Modal onClose={handleCloseModal} />}
+      {isChatEmOpen && <ChatEm onClose={handleCloseChatEm} />}
     </div>
   );
 }

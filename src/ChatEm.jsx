@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Modal.css";
+import "./ChatEm.css";
 
 const Modal = ({ onClose }) => {
   const [closing, setClosing] = useState(false);
@@ -24,7 +24,17 @@ const Modal = ({ onClose }) => {
         <button className="close-button" onClick={handleClose}>
           ◄
         </button>
-        {/* Add your content here */}
+        <div className="ChatSelector">
+          <div className="ChatSelectorButtons">
+            <p>Chats Activos</p>
+            {[...Array(2)].map((_, index) => (
+              <button key={index}>
+                <img src={`imagen-${index + 1}.jpg`} className="button-image" />
+                Botón {index + 1}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
