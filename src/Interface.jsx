@@ -53,23 +53,6 @@ function App() {
       </section>
       <section>
         <div className="Containerinfo">
-          <div>
-            <input
-                type="text"
-                value={playerName}
-                onChange={(e) => setPlayerName(e.target.value)}
-                placeholder="Enter player name"
-              />
-          </div>
-            <button onClick={handleSearch}>Search</button>
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
-            {playerStats && (
-                <div>
-                  <h2>Player Stats</h2>
-                  <pre>{JSON.stringify(playerStats, null, 2)}</pre>
-                </div>
-              )}
         </div>
       </section>
       {isModalOpen && <Modal onClose={handleCloseModal} />}
