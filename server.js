@@ -10,20 +10,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//const connection = mysql.createConnection({
-//  host: process.env.DB_HOST,
-//  user: process.env.DB_USER,
-//  password: process.env.DB_PASSWORD,
-//  database: process.env.DB_NAME,
-//});
-//
-//connection.connect((err) => {
-//    if (err) {
-//      console.error('Error connecting to the database:', err);
-//      return;
-//    }
-//    console.log('Connected to the MySQL database');
-//});  
+app.get('/nombres', (req, res) => {
+  connection.query('SELECT gameUser, color, game, nombreR FROM accounts', (error, results, fields) => {
+    if (error) {
+      console.error('Error al obtener los nombres:', error);
+      res.status(500).send('Error interno del servidor');
+      return;
+    }
+    const nombres = results;
+    res.send(nombres)
+    console.log(nombres)
+  });
+});
 
 app.get("/test", (req, res) => {
   res.send("Hello")
@@ -36,11 +34,14 @@ app.post('/register', (req, res) => {
   const pwd = req.body["password"]
   const mail = req.body["mail"]
   const gameUser = req.body["gameUser"]
+  const color = req.body["color"]
+  const game = req.body["game"]
+  const nombreR = req.body["nombreR"]
   console.log("datos recibidos, ", user, pwd)
 
   // Insertar datos en la base de datos
-  const sql = 'INSERT INTO accounts (username, password, gameUser, mail) VALUES (?, ?, ?, ?)';
-  connection.query(sql, [user, pwd, gameUser, mail], (err, result) => {
+  const sql = 'INSERT INTO accounts (username, password, gameUser, mail, color, game, nombreR) VALUES (?, ?, ?, ?, ?, ?, ?)';
+  connection.query(sql, [user, pwd, gameUser, mail, color, game, nombreR], (err, result) => {
     if (err) {
       console.error('Error al insertar datos en la base de datos:', err);
       res.status(500).json({ error: 'Error, quizas el usuario ya existe?' });

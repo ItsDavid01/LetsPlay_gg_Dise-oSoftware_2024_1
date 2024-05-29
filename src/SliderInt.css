@@ -97,6 +97,10 @@
     right: 10px;
     background: rgba(65, 65, 65, 0.63);
   }
+
+  .slide-content{
+    line-height: 1.5;
+  }
   
 
   

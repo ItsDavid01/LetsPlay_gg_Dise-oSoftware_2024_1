@@ -8,12 +8,17 @@ import axios from 'axios';
 
 
 function App() {
-    const [registroExitoso, setRegistroExitoso] = useState(false);
     const navigate = useNavigate();
+    const [registroExitoso, setRegistroExitoso] = useState(false);
+    
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
     const [mail, setMail] = useState('');
     const [gameUser, setGameUser] = useState('');
+    const [userColor, setUserColor] = useState('');
+    const [game, setGame] = useState('');
+    const [nombreReal, setReal] = useState('');
+
     const [responseMessage, setResponseMessage] = useState('');
 
     useEffect(() => {
@@ -21,8 +26,20 @@ function App() {
         audioElement.play();
     }, []);
 
+    const handleRealChange = (event) => {
+        setReal(event.target.value);
+    };
+
     const handleUsuarioChange = (event) => {
         setUsuario(event.target.value);
+    };
+
+    const handleGameChange = (event) => {
+        setGame(event.target.value);
+    };
+
+    const handleColorChange = (event) => {
+        setUserColor(event.target.value);
     };
 
     const handleGameUserChange = (event) => {
@@ -46,7 +63,7 @@ function App() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({"usuario": usuario, "password": password, "mail": mail, "gameUser": gameUser})
+                body: JSON.stringify({"usuario": usuario, "password": password, "mail": mail, "gameUser": gameUser, "color": userColor, "game": game, "nombreR": nombreReal})
             });
 
             const result = await response.json()
@@ -103,6 +120,10 @@ function App() {
                             <h2>Registrate</h2>
                             <h4>¡Bienvenido a Let's Play.GG!</h4>
                             <div className="input-contenedor">
+                                <input type="name" id="nameR" onChange={handleRealChange} required></input>
+                                <label htmlFor="#">¿Cuál es tu nombre real?</label>
+                            </div>
+                            <div className="input-contenedor">
                                 <input type="name" id="name1id" onChange={handleGameUserChange} required></input>
                                 <label htmlFor="#">¿Cuál es tu nombre en el juego?</label>
                             </div>
@@ -111,6 +132,17 @@ function App() {
                                 <label htmlFor="#">Correo Electrónico</label>
                             </div>
                             <div className="input-contenedor">
+                                <input type="text" id="usercolor" onChange={handleColorChange} required></input>
+                                <label htmlFor="#">Tu color Favorito</label>
+                            </div>
+                            <div className="input-contenedor">
+                                <input type="text" id="game" onChange={handleGameChange} required></input>
+                                <label htmlFor="#">Tu juego Favorito</label>
+                            </div>
+                            
+                            <button type="submit">¡Registrarse!</button>
+                            <br /><br />
+                            <div className="input-contenedor">
                                 <input type="user" id="userid" value={usuario} onChange={handleUsuarioChange} required></input>
                                 <label htmlFor="#">Usuario</label>
                             </div>
@@ -118,8 +150,6 @@ function App() {
                                 <input type="password" id="userpwd" value={password} onChange={handlePasswordChange} required></input>
                                 <label htmlFor="#">Contraseña</label>
                             </div>
-                            <button type="submit">¡Registrarse!</button>
-                            <br /><br />
                             <button onClick={guardarInfoRegistro}>Iniciar Sesión!</button>
                             {registroExitoso && <AvisoEmergente mensaje="¡Registro exitoso!" />}
                             <br /><br />

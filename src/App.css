@@ -38,7 +38,7 @@ section{
     border: 2px solid rgba(255,255,255,.6);
     border-radius: 20px;
     backdrop-filter: blur(20px);
-    height: 450px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
