@@ -1,16 +1,27 @@
 import React, { useState } from "react";
-import "./Slider.css";
+import "./SliderInt.css";
 
 const Slider = () => {
-  const [activeSlide, setActiveSlide] = useState(1);
-  const totalSlides = 4;
+
+  const slides = [
+    { title: 'Slide 1', content: 'Contenido del slide 1' },
+    { title: 'Slide 2', content: 'Contenido del slide 2' },
+    { title: 'Slide 3', content: 'Contenido del slide 3' },
+    { title: 'Slide 4', content: 'Contenido del slide 4' },
+    { title: 'Slide 5', content: 'Contenido del slide 5' },
+    // Agrega más objetos para más slides
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleNext = () => {
-    setActiveSlide((prev) => (prev % totalSlides) + 1);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   const handlePrev = () => {
-    setActiveSlide((prev) => (prev === 1 ? totalSlides : prev - 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+    );
   };
 
   return (
@@ -19,26 +30,11 @@ const Slider = () => {
         <div id="overflow">
           <div
             className="inner"
-            style={{ marginLeft: `-${(activeSlide - 1) * 100}%` }}
-          >
+            style={{ marginLeft: `-${(currentSlide - slides.length) * 100}%` }}
+            >
             <div className="slide slide1">
               <div className="slide-content">
-                <p>Content for Slide 1</p>
-              </div>
-            </div>
-            <div className="slide slide2">
-              <div className="slide-content">
-                <p>Content for Slide 2</p>
-              </div>
-            </div>
-            <div className="slide slide3">
-              <div className="slide-content">
-                <p>Content for Slide 3</p>
-              </div>
-            </div>
-            <div className="slide slide4">
-              <div className="slide-content">
-                <p>Content for Slide 4</p>
+                <p>{slides[currentSlide].title}</p>
               </div>
             </div>
           </div>
